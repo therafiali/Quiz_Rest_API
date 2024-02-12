@@ -43,8 +43,8 @@ def create_question(question: Quiz_Question):
 def get_questions():
     with Session(engine) as session:
         questions = session.exec(select(Quiz_Question)).all()
-        # question_data = [{"id": question.id, "question": question.question, "choices": question.choices} for question in questions]
-        return questions
+        question_data = [{"id": question.id, "question": question.question, "choices": question.choices} for question in questions]
+        return question_data
 
 
 @app.post("/answers")
